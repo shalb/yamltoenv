@@ -14,4 +14,4 @@ Compile:
 mkdir -p ${GOPATH}/src/github.com/shalb/
 cd ${GOPATH}/src/github.com/shalb/
 git clone https://github.com/shalb/yamltoenv.git
-go 
+cd yamltoenv/

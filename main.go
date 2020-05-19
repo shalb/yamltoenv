@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"reflect"
 	"strconv"
+	"strings"
 
 	"gopkg.in/yaml.v2"
 )
@@ -34,7 +35,9 @@ func iterateAndPrintStruct(value interface{}, prefix string) {
 		}
 	default:
 		// Value is value :) (string, int, bool, float64 ...). Print variable definition for bash.
-		fmt.Printf("%s=%v\n", prefix, value)
+		// Replace - with _
+		p := strings.ReplaceAll(prefix, "-", "_")
+		fmt.Printf("export %s=\"%v\"\n", p, value)
 	}
 }
 
