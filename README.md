@@ -14,11 +14,8 @@ echo "export PATH=$HOME/go/bin:$PATH" >> ~/.profile
 echo "export GOPATH=$HOME/go" >> ~/.profile
 
 # Compile:
-mkdir -p ${GOPATH}/src/github.com/shalb/
-cd ${GOPATH}/src/github.com/shalb/
-git clone https://github.com/shalb/yamltoenv.git
-cd yamltoenv/
-go get
+go get github.com/shalb/yamltoenv
+cd ${GOPATH}/src/github.com/shalb/yamltoenv
 go install
 
 # test util
