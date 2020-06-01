@@ -7,7 +7,7 @@ if [ -z "${CMD_PATH+x}" ]; then
 fi
 
 FILE_LIST="yamltoenv"
-
+GOOS="linux"
 EVENT_DATA=$(cat $GITHUB_EVENT_PATH)
 echo $EVENT_DATA | jq .
 UPLOAD_URL=$(echo $EVENT_DATA | jq -r .release.upload_url)
