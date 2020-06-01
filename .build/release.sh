@@ -16,10 +16,6 @@ RELEASE_NAME=$(echo $EVENT_DATA | jq -r .release.tag_name)
 PROJECT_NAME=$(basename $GITHUB_REPOSITORY)
 NAME="${NAME:-${PROJECT_NAME}_${RELEASE_NAME}}_${GOOS}_${GOARCH}"
 
-if [ -z "${EXTRA_FILES+x}" ]; then
-    echo "::warning file=entrypoint.sh,line=22,col=1::EXTRA_FILES not set"
-fi
-
 ARCHIVE=tmp.tgz
 tar cvfz $ARCHIVE ${FILE_LIST}
 
