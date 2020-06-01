@@ -28,6 +28,8 @@ func iterateAndPrintStruct(value interface{}, prefix string) {
 		for index, v := range value.([]interface{}) {
 			iterateAndPrintStruct(v, prefix+sp+strconv.Itoa(index))
 		}
+		p := strings.ReplaceAll(prefix+sp+"count", "-", "_")
+		fmt.Printf("export %s=\"%d\"\n", p, len(value.([]interface{})))
 	case reflect.Map:
 		// Value type is map - need recursive call. Add separator and key name as a prefix.
 		for name, v := range value.(map[interface{}]interface{}) {
