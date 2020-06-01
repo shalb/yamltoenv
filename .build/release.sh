@@ -8,6 +8,7 @@ fi
 
 FILE_LIST="yamltoenv"
 GOOS="linux"
+GOARCH="amd64"
 EVENT_DATA=$(cat $GITHUB_EVENT_PATH)
 echo $EVENT_DATA | jq .
 UPLOAD_URL=$(echo $EVENT_DATA | jq -r .release.upload_url)
