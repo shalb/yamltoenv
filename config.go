@@ -23,6 +23,6 @@ func globalConfigInit() {
 	flag.Parse()
 	// Check if filename is set.
 	if globalConfig.YamlForParse == "" {
-		log.Fatalf("Option -f is cdrequired.")
+		log.Fatalf("Option -f is required.")
 	}
 }
