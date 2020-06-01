@@ -5,12 +5,12 @@ set -eux
 if [ -z "${CMD_PATH+x}" ]; then
   export CMD_PATH=""
 fi
-
+set -x
 FILE_LIST="yamltoenv"
 GOOS="linux"
 GOARCH="amd64"
 EVENT_DATA=$(cat $GITHUB_EVENT_PATH)
-echo $EVENT_DATA | jq .
+# echo $EVENT_DATA | jq .
 UPLOAD_URL=$(echo $EVENT_DATA | jq -r .release.upload_url)
 UPLOAD_URL=${UPLOAD_URL/\{?name,label\}/}
 RELEASE_NAME=$(echo $EVENT_DATA | jq -r .release.tag_name)
