@@ -33,3 +33,5 @@ jobs:
 
     - name: Relese
       run: cp .build/release.sh ./ && ./release.sh
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
